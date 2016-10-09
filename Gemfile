@@ -30,7 +30,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
-
+gem 'paperclip'
+gem 'aws-sdk', '< 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
