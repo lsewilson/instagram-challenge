@@ -1,0 +1,7 @@
+<%= form_for(@post, html: {multipart: true}) do |f| %>
+  <%= f.text_field(:caption, placeholder: "Add caption here") %>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  <%= f.submit(value: "Upload splat")%>
+  <%= link_to "Cancel", posts_path %>
+<% end %>
