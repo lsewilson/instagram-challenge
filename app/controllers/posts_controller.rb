@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
 
+  before_action :authenticate_user!, :except => [:index, :show]
+
   def index
-     flash[:notice] = 'No posts added'
+    @posts = Post.all
   end
 
   def new
@@ -10,6 +12,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     if @post.save
       redirect_to "/posts/#{@post.id}"
     else
