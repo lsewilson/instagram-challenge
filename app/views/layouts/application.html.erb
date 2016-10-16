@@ -5,18 +5,34 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign in", new_user_session_path %>
-      <%= link_to "Sign up", new_user_registration_path %>
-    <% end %>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <%= link_to "Photosplat", root_path, class: "brand-logo center" %>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <% if user_signed_in? %>
+              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Sign in", new_user_session_path %></li>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <% end %>
+          </ul>
+          <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><%= link_to "New splat", new_post_path %></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
     <%= notice %>
     <%= alert %>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

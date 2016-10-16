@@ -21,7 +21,7 @@ $ cd instagram-challenge
 ```
 Set up a .env file by copying the example and filling in with relevant Facebook and AWS keys.
 ```
-$ cp .env.development.example .env
+$ cp .env.example .env
 ```
 Install all gems and migrate databases.
 ```
